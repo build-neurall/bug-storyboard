@@ -2,9 +2,9 @@
 
 **Record. Rewind. Debug.**
 
-An open-source frontend debugging tool that records a short timeline of state changes, user actions, and errors before you hit a bug — so you can see what actually changed instead of guessing with `console.log`.
+![Bug Storyboard Logo](./logo.png)
 
-![Bug Storyboard Timeline](https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80)
+An open-source frontend debugging tool that records a short timeline of state changes, user actions, and errors before you hit a bug — so you can see what actually changed instead of guessing with `console.log`.
 
 ## ✨ Features
 
