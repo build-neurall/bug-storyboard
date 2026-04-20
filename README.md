@@ -19,25 +19,45 @@ An open-source frontend debugging tool that records a short timeline of state ch
 
 ### 1. Install
 
+**From GitHub (until npm packages are published):**
+
 ```bash
-npm install @neurall/bug-storyboard-sdk
+# Install the monorepo
+git clone https://github.com/build-neurall/bug-storyboard.git
+cd bug-storyboard
+pnpm install
+
+# Or install packages directly from GitHub
+npm install github:build-neurall/bug-storyboard#master
 ```
 
-### 2. Initialize
+> **Note:** npm packages (`@neurall/bug-storyboard-sdk`, etc.) will be published soon. For now, use the GitHub installation method.
 
-```ts
+### 2. Start the Collector
+
+```bash
+cd packages/collector
+pnpm dev
+# Collector running on http://localhost:5777
+```
+
+### 3. Start the Viewer
+
+```bash
+cd packages/viewer
+pnpm dev
+# Viewer running on http://localhost:3000
+```
+
+### 4. Add SDK to Your React App
+
+```tsx
 import { initBugStoryboard } from "@neurall/bug-storyboard-sdk";
 
 initBugStoryboard({
   appId: "my-app",
   collectorUrl: "http://localhost:5777"
 });
-```
-
-### 3. Track State
-
-```tsx
-import { useTrackedState, trackAction, captureBug } from "@neurall/bug-storyboard-sdk";
 
 function Cart() {
   const [items, setItems] = useTrackedState("cart.items", []);
@@ -59,20 +79,6 @@ function Cart() {
     </div>
   );
 }
-```
-
-### 4. Run the Collector
-
-```bash
-npx @neurall/bug-storyboard-collector
-```
-
-### 5. View in the Viewer
-
-```bash
-npm install @neurall/bug-storyboard-viewer
-npm run dev
-# Open http://localhost:3000
 ```
 
 ## 📐 Architecture
